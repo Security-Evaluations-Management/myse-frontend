@@ -37,10 +37,28 @@
         {% endif %}
         {% if current_user.is_authenticated %}
             <li>
+                <a href="{{ url_for('search.search') }}">
+                    Search
+                </a>
+            </li>
+            <li>
                 <a href="{{ url_for('auth.logout') }}">
                     Logout
                 </a>
             </li>
+        {% endif %}
+        {% if current_user.is_administrator %}
+            <li>
+                <a href="{{ url_for('assignRole.assignRole') }}">
+                    Assign Role
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('createCriteria.createCriteria') }}">
+                    Create Criteria
+                </a>
+            </li>
+
         {% endif %}
     </ul>
 </header>

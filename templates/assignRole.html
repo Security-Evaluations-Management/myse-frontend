@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+ <h3 class="title">Assign Role</h3>
+
+    <form action="/assignRole" method="POST">
+        <label> Find User:
+            <input type="Find User:" name="search user" placeholder="Search the user" autofocus=""><br>
+        </label>
+
+
+        <label> Find Role:
+            <input type="Select Role:" name="search role" placeholder="Search the role" autofocus=""><br>
+        </label>
+
+        <button>Assign</button>
+    </form>
+
+    <output name="Result">Result shows here</output>
+{% endblock %}

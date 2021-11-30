@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+ <h3 class="title">Create Criteria</h3>
+
+    <form action="/createCriteria" method="POST">
+        <label> Criteria Tag:
+            <input type="Create Tag:" name="create tag" placeholder="Enter a tag name" autofocus=""><br>
+        </label>
+
+
+        <label> Description:
+            <input type="Description:" name="description" placeholder="Enter your description" autofocus=""><br>
+        </label>
+
+        <button>Create</button>
+    </form>
+
+    <output name="Result">Result shows here</output>
+{% endblock %}
