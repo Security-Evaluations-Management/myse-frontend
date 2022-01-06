@@ -36,6 +36,28 @@
             </li>
         {% endif %}
         {% if current_user.is_authenticated %}
+            {% set user_role = current_user.role.name %}
+            {% if user_role == 'Admin' %}
+                <li>
+                    <a href="{{ url_for('auth.admin') }}">
+                        Admin
+                    </a>
+                </li>
+            {% endif %}
+            {% if user_role == 'DEV' or user_role == 'Admin' %}
+                <li>
+                    <a href="{{ url_for('upload.upload') }}">
+                        Upload
+                    </a>
+                </li>
+            {% endif %}
+            {% if user_role == 'DEV' or user_role == 'QA' or user_role == 'Admin' %}
+                <li>
+                    <a href="{{ url_for('search.search') }}">
+                        Search
+                    </a>
+                </li>
+            {% endif %}
             <li>
                 <a href="{{ url_for('auth.logout') }}">
                     Logout
