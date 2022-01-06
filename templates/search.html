@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block rel %}
+    <link rel="stylesheet" href="/static/css/search.css">
+{% endblock %}
+
+{% block page_title %}
+    <title>Search Evidence</title>
+{% endblock %}
+
+{% block content %}
+    <h3 class="title">Search Evidence</h3>
+    <form action="/search" method="POST">
+    </form>
+{% endblock %}
