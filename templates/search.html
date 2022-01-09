@@ -86,8 +86,9 @@
             {% for evidence in results %}
             <tr>
                 <td>{{ evidence[1] }}</td>
+
                 <td>
-                    <a href="{{ evidence[6] }}">{{ evidence[6] }}</a>
+                    <a href="http://127.0.0.1:5000/view",id = "{{ evidence[0] }}">{{ evidence[6] }}</a>
                 </td>
             </tr>
             {% endfor %}
