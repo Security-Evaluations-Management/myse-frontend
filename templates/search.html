@@ -66,32 +66,34 @@
             </td>
         </tr>
     </table>
-    <!/form>
+
+    {% with message = get_flashed_messages() %}
+        {% if message %}
+            <div>
+                {{ message[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
 
     {% if results %}
      <h3 class="title">Here is what we found:</h3>
+
         <table>
-            <tr>{{ results[0]}}</tr>
-            <tr>{{ results[1]}}</tr>
-            <tr>{{ results[2]}}</tr>
-            <tr>{{ results[3]}}</tr>
-            <tr>{{ results[4]}}</tr>
-            <tr>{{ results[5]}}</tr>
-        </table>
-        <!--table>
             <tr>
                 <th>Evidence Name</th>
                 <th>url</th>
             </tr>
             {% for evidence in results %}
             <tr>
-                <td>{{ evidence.name }}</td>
+                <td>{{ evidence[1] }}</td>
                 <td>
-                    <a href="https://www.google.ca/">{{ evidence.url }}</a>
+                    <a href="{{ evidence[6] }}">{{ evidence[6] }}</a>
                 </td>
             </tr>
             {% endfor %}
-        </table-->
+        </table>
      {% endif %}
+
+
     </form>
 {% endblock %}
