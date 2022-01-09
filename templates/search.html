@@ -9,19 +9,21 @@
 {% endblock %}
 
 {% block content %}
+    <form action="/search" method="POST">
     <h3 class="title">Search Evidence</h3>
     <table>
         <tr>
             <td>
                 <label>ID:</label>
-                <input type="text" id="create_time" name="create_time" placeholder="e.g 0001" pattern="[0-9]{4}">
+                <input type="text" id="id" name="id" placeholder="e.g 0001" pattern="[0-9]{4}">
              </td>
         </tr>
         <tr>
             <td>
             Criteria: <select name="criteria" id="criteria">
-                {% for criteria_name in criteria_name_list %}
-                <option value="{{ criteria_name }}">{{ criteria_name }}</option>
+                <option value="" selected = "selected">Select criteria</option>
+                {% for criteria_name in criteria_names %}
+                <option value="{{ criteria_name }}" >{{ criteria_name }}</option>
                 {% endfor %}
                       </select>
             </td>
@@ -29,7 +31,8 @@
         <tr>
             <td>
             Project: <select name="project" id="project">
-                {% for project_name in project_name_list %}
+                <option value="" selected = "selected">Select project</option>
+                {% for project_name in project_names %}
                 <option value="{{ project_name }}">{{ project_name }}</option>
                 {% endfor %}
                       </select>
@@ -38,7 +41,8 @@
         <tr>
             <td>
             Employee Name: <select name="employee_name"  id="employee_name">
-                {% for employee_name in employee_name_list %}
+                <option value="" selected = "selected">Select employee name</option>
+                {% for employee_name in employee_names %}
                 <option value="{{ employee_name }}">{{ employee_name }}</option>
                 {% endfor %}
                           </select>
@@ -62,6 +66,32 @@
             </td>
         </tr>
     </table>
-    <form action="/search" method="POST">
+    <!/form>
+
+    {% if results %}
+     <h3 class="title">Here is what we found:</h3>
+        <table>
+            <tr>{{ results[0]}}</tr>
+            <tr>{{ results[1]}}</tr>
+            <tr>{{ results[2]}}</tr>
+            <tr>{{ results[3]}}</tr>
+            <tr>{{ results[4]}}</tr>
+            <tr>{{ results[5]}}</tr>
+        </table>
+        <!--table>
+            <tr>
+                <th>Evidence Name</th>
+                <th>url</th>
+            </tr>
+            {% for evidence in results %}
+            <tr>
+                <td>{{ evidence.name }}</td>
+                <td>
+                    <a href="https://www.google.ca/">{{ evidence.url }}</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table-->
+     {% endif %}
     </form>
 {% endblock %}
