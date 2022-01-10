@@ -10,48 +10,53 @@
 
 {% block content %}
     <h3 class="title">Upload Evidence</h3>
-     <form action="/upload" method="POST" entype="multipart/form-data">
-        <tr>
-            <td>
-                <label for="ev_name">Evidence name: </label>
-            </td>
-            <td>
-                <input type="text" name="ev_name" placeholder="evidence name" required autofocus=""><br>
-            </td>
-        </tr>
-         <tr>
-             <td>
-                 <label for="proj_name">Project name: </label>
-             </td>
-             <td>
-                 <input type="text" name="proj_name" placeholder="project name" required><br>
-             </td>
-         </tr>
-         <tr>
-             <td>
-                  <label>
-                        <p>Description: </p>
+     <form action="/upload" method="POST" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td>
+                    <label>Evidence name: </label>
+                    <input type="text" name="ev_name" placeholder="evidence name" required autofocus=""><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Project name: </label>
+                    <input type="text" name="proj_name" placeholder="project name" required><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Description:</label>
+                    <p>
                         <textarea name="description" cols="20" rows="5" wrap="soft"> </textarea>
-                  </label>
-             </td>
-         </tr>
-         <tr>
-             <td>
-                 <label>Choose criteria for your evidence from the list:</label>
-             </td>
-         </tr>
-         <tr>
-             <td>
-                 <label>
-                     <p>Upload your file:</p>
-                     <input type="file" name="file_upload"><br>
-                 </label>
-             </td>
-         </tr>
-         <tr>
-             <td>
-                 <button>Submit</button>
-             </td>
-         </tr>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Choose criteria for your evidence from the list:</label>
+                    <p>
+                        <select name="criteria" id="lang" size="8">
+                        {% for criteria in criteria_list %}
+                            <option value="{{ criteria }}">{{ criteria }}</option>
+                        {% endfor %}}
+                    </select>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>
+                        <p>Upload your file:</p>
+                        <input type="file" name="file_upload"><br>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Submit">
+                </td>
+            </tr>
+        </table>
     </form>
 {% endblock %}
