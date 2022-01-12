@@ -46,15 +46,20 @@
             {% endif %}
             {% if user_role == 'DEV' or user_role == 'Admin' %}
                 <li>
-                    <a href="{{ url_for('upload.upload') }}">
+                    <a href="{{ url_for('evidence.upload') }}">
                         Upload
                     </a>
                 </li>
             {% endif %}
             {% if user_role == 'DEV' or user_role == 'QA' or user_role == 'Admin' %}
                 <li>
-                    <a href="{{ url_for('search.search') }}">
+                    <a href="{{ url_for('evidence.search') }}">
                         Search
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('criteria.criteria') }}">
+                        Criteria
                     </a>
                 </li>
             {% endif %}

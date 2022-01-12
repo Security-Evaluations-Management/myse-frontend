@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block rel %}
+    <link rel="stylesheet" href="/static/css/login.css">
+{% endblock %}
+
 {% block content %}
     <h3 class="title">Login</h3>
     {% with message = get_flashed_messages() %}
