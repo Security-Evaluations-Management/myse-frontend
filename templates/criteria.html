@@ -9,23 +9,22 @@
 {% endblock %}
 
 {% block content %}
+    {% if allow_modification %}
+        <h3 class="title">Add New Criteria</h3>
+
+        <form action="/criteria/creation" method="POST">
+            <label> Name:
+                <input type="text" name="new_criteria_name"/>
+            </label><br/>
+            <label> Description:
+                <textarea name="new_criteria_description"></textarea>
+            </label><br/>
+            <input type="submit" name="action" value="Submit"/>
+        </form>
+    {% endif %}
     {% if not criteria_list %}
         <h3 class="title">No Criteria Exist</h3>
     {% else %}
-        {% if allow_modification %}
-            <h3 class="title">Add New Criteria</h3>
-
-            <form action="/criteria/creation" method="POST">
-                <label> Name:
-                    <input type="text" name="new_criteria_name"/>
-                </label><br/>
-                <label> Description:
-                    <textarea name="new_criteria_description"></textarea>
-                </label><br/>
-                <input type="submit" name="action" value="Submit"/>
-            </form>
-        {% endif %}
-
         <h3 class="title">Criteria List</h3>
         <table id="Criteria List">
             <tr>
