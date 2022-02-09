@@ -12,15 +12,25 @@
     {% if allow_modification %}
         <h3 class="title">Add New Criteria</h3>
 
-        <form action="/criteria/creation" method="POST">
-            <label> Name:
-                <input type="text" name="new_criteria_name"/>
-            </label><br/>
-            <label> Description:
-                <textarea name="new_criteria_description"></textarea>
-            </label><br/>
+        <form action="/criteria/creation" method="POST" enctype="multipart/form-data">
+            <label>Criteria Name: </label>
+                <input type="text" name="criteria_name" placeholder="criteria name" autofocus=""><br>
+            <label>Criteria Description</label>
+                <input type="text" name="description" autofocus=""><br>
+            <label> Upload criteria file:
+                <input type="file", name="criteria_file"><br>
+            </label>
             <input type="submit" name="action" value="Submit"/>
         </form>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class=flashes>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
     {% endif %}
     {% if not criteria_list %}
         <h3 class="title">No Criteria Exist</h3>
